@@ -1,0 +1,95 @@
+.voting-page {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 2rem;
+}
+
+.voting-page h1 {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.description {
+  text-align: center;
+  color: #666;
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+.ranking-form {
+  margin: 2rem 0;
+}
+
+.instructions {
+  margin-bottom: 1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.option-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  background: #f8f9fa;
+  border-radius: 4px;
+  border: 1px solid #dee2e6;
+}
+
+.option-text {
+  flex: 1;
+  font-size: 1.1rem;
+}
+
+.rank-select {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  min-width: 80px;
+}
+
+.submit-vote-btn {
+  width: 100%;
+  padding: 1rem;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.submit-vote-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.error {
+  color: #dc3545;
+  margin: 1rem 0;
+  padding: 0.75rem;
+  background: #f8d7da;
+  border-radius: 4px;
+}
+
+.success-message {
+  text-align: center;
+  padding: 2rem;
+}
+
+.success-message h2 {
+  color: #28a745;
+  margin-bottom: 1rem;
+}
+
+.poll-closed {
+  text-align: center;
+  padding: 2rem;
+}
+
+.poll-closed h2 {
+  margin-bottom: 1rem;
+}
