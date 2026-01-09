@@ -150,15 +150,25 @@ router.get("/:shareableLink", async (req, res) => {
         {
           model: PollOption,
           as: "options",
-          order: [["displayOrder", "ASC"]],
+          required: false, // Left join to include all options even if poll exists
         },
       ],
-      order: [[PollOption, "displayOrder", "ASC"]],
     });
 
     if (!poll) {
       return res.status(404).json({ error: "Poll not found" });
     }
+
+    // Sort options by displayOrder (JavaScript sort for compatibility)
+    const sortedOptions = poll.options
+      ? poll.options
+          .map((opt) => ({
+            id: opt.id,
+            optionText: opt.optionText,
+            displayOrder: opt.displayOrder,
+          }))
+          .sort((a, b) => a.displayOrder - b.displayOrder)
+      : [];
 
     // Get total ballots count
     const totalBallots = await Ballot.count({ where: { pollId: poll.id } });
@@ -167,11 +177,7 @@ router.get("/:shareableLink", async (req, res) => {
       id: poll.id,
       title: poll.title,
       description: poll.description,
-      options: poll.options.map((opt) => ({
-        id: opt.id,
-        optionText: opt.optionText,
-        displayOrder: opt.displayOrder,
-      })),
+      options: sortedOptions,
       isOpen: poll.isOpen,
       totalBallots,
     });

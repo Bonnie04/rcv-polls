@@ -68,7 +68,7 @@ const App = () => {
         <Routes>
           <Route path="/login" element={<Login setUser={setUser} />} />
           <Route path="/signup" element={<Signup setUser={setUser} />} />
-          <Route exact path="/" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/create" element={<CreatePoll />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/vote/:shareableLink" element={<VotingPage />} />
